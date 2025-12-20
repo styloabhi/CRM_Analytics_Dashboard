@@ -306,9 +306,10 @@ fig = px.funnel(
 fig.update_layout(
     template="simple_white",
     yaxis_title="Stage",
-    xaxis_title="Opportunity Count"
+    xaxis_title="Opportunity Count",
+    funnelgap=0
 )
-fig.update_layout(funnelgap=0)
+
 st.plotly_chart(fig, use_container_width=True)
 
 
