@@ -194,7 +194,7 @@ open_filtered = open_df[
 Total_Revenue = df['close_value'].sum()
 Total_Revenue_Display = "$" + millify(Total_Revenue, precision=2)
 
-total_opps = filtered["opportunity_id"].nunique()
+total_opps = pd.concat([filtered, open_filtered])["opportunity_id"].nunique()
 won_opps = filtered[filtered["deal_stage"]=="Won"]["opportunity_id"].nunique()
 lost_opps = filtered[filtered["deal_stage"]=="Lost"]["opportunity_id"].nunique()
 open_opps = len(open_filtered)
