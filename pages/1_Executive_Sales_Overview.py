@@ -125,7 +125,7 @@ with col_title:
 # --------------------------
 sales_pipeline = pd.read_csv('Resources/sales_pipeline.csv')
 sales_pipeline['close_date'] = pd.to_datetime(sales_pipeline['close_date'], format='%d-%m-%Y', errors="coerce")
-sales_pipeline['engage_date'] = pd.to_datetime(sales_pipeline['engage_date'], format='%Y-%m-%d', errors="coerce")
+sales_pipeline['engage_date'] = pd.to_datetime(sales_pipeline['engage_date'], format='%d-%m-%Y', errors="coerce")
 accounts = pd.read_csv('Resources/accounts.csv')
 
 df = sales_pipeline.merge(accounts, on="account", how="inner")
