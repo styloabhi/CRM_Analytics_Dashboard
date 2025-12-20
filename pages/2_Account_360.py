@@ -3,8 +3,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import plotly.express as px
-from streamlit_jupyter import StreamlitPatcher
-StreamlitPatcher().jupyter()
 import streamlit as st
 from millify import millify
 
