@@ -37,6 +37,52 @@ elif auth_status is False:
 
 # WHEN LOGIN SUCCESS
 elif auth_status is True:
+    # ----------------------------
+# SIDEBAR STYLE
+# ----------------------------
+    st.markdown("""
+    <style>
+
+    [data-testid="stSidebar"] {
+        background: linear-gradient(to bottom, #08142c, #0a182f, #0d1e3b);
+        color: white;
+        padding: 20px;
+    }
+
+    [data-testid="stSidebar"] * {
+        color: white !important;
+        font-size: 15px;
+    }
+
+    .sidebar-title {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    .sidebar-label {
+        font-size: 16px;
+        font-weight: 600;
+        color: #9db7d6 !important;
+        margin-top: 18px;
+        margin-bottom: 5px;
+    }
+
+    div[data-baseweb="select"] > div {
+        background-color: #132240 !important;
+        border-radius: 10px !important;
+        border: 1px solid #3c4f70 !important;
+        color: white !important;
+    }
+
+    span[data-baseweb="tag"] {
+        background-color: #5e82ff !important;
+        color: white !important;
+        font-weight: 600;
+    }
+
+    </style>
+    """, unsafe_allow_html=True)
     st.sidebar.success(f"Welcome {name} 👋")
     authenticator.logout("Logout", "sidebar")
 
