@@ -1,3 +1,5 @@
+import streamlit as st
+# 🔐 Page security check
 if st.session_state["authentication_status"] != True:
     st.error("Please login first.")
     st.stop()
@@ -8,7 +10,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import plotly.express as px
-import streamlit as st
+
 from millify import millify
 
 
