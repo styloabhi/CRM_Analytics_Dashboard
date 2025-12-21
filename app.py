@@ -4,16 +4,13 @@ from yaml.loader import SafeLoader
 
 import streamlit_authenticator as stauth
 
-
 st.set_page_config(page_title="CRM Dashboard", layout="wide")
-
 
 # -------------------------
 # LOAD YAML CONFIG
 # -------------------------
 with open('config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
-
 
 # -------------------------
 # AUTHENTICATION
@@ -25,25 +22,15 @@ authenticator = stauth.Authenticate(
     config['cookie']['expiry_days'],
 )
 
-name, auth_status, username = authenticator.login(
-    form_name='Login',
-    location='main'
-)
-
-
+name, auth_status, username = authenticator.login('Login', 'main')
 
 # -------------------------
 # CHECK LOGIN STATUS
 # -------------------------
 if auth_status:
 
-    # SUCCESS LOGIN
     st.sidebar.success(f"Welcome: {name}")
     authenticator.logout("Logout", "sidebar")
-
-    # -------------------------
-    # DASHBOARD CONTENT BELOW
-    # -------------------------
 
     st.markdown("# 📊 CRM Analytics Dashboard")
     st.write("### Welcome to CRM Streamlit App 🚀")
