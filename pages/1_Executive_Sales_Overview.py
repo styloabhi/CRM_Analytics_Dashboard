@@ -1,8 +1,15 @@
+import streamlit as st
+if st.session_state["authentication_status"] != True:
+    st.error("Please login first.")
+    st.stop()
+
+
+
 # -----------------------------------------------------
 # EXECUTIVE SALES OVERVIEW DASHBOARD (NEW UI DESIGN)
 # -----------------------------------------------------
 
-import streamlit as st
+
 import pandas as pd
 import numpy as np
 from PIL import Image

@@ -1,3 +1,8 @@
+if st.session_state["authentication_status"] != True:
+    st.error("Please login first.")
+    st.stop()
+
+
 # importing libraries
 import pandas as pd
 import numpy as np

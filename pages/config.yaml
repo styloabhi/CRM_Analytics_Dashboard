@@ -1,0 +1,21 @@
+credentials:
+  usernames:
+    Abhishek:
+      email: styloabhi@gmail.com
+      name: Admin User
+      password: "$2b$12$vpi93t7DvzHG/5oJDEPJOOjXf/pkIPvOj8xErGWmV.wE4rgHxC9I."
+
+    guest_user:
+      email: guest@crm.com
+      name: Guest User
+      password: "$2b$12$ysLqBnaNPYnbIwQkJrDeUeQKtN.hFHqvApS8UAFrQsRh36dQyVrRS"
+
+cookie:
+  expiry_days: 1
+  name: crm_app_session
+  key: random_secret_key_123
+
+preauthorized:
+  emails:
+    - guest@crm.com
+
