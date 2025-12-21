@@ -126,7 +126,7 @@ with col_title:
 # ----------------------------
 # LOAD DATA
 # ----------------------------
-sa360 = pd.read_csv("../crm_streamlit_app/Resources/sales_agent_360.csv")
+sa360 = pd.read_csv("Resources/sales_agent_360.csv")
 sa360['first_engage_date'] = pd.to_datetime(sa360['first_engage_date'],format = '%d-%m-%Y')
 sa360['last_close_date']= pd.to_datetime(sa360['last_close_date'],format = '%d-%m-%Y')
 

@@ -99,7 +99,7 @@ with col_title:
 # ----------------------------
 # LOAD DATA
 # ----------------------------
-cr = pd.read_csv("../crm_streamlit_app/Resources/cohort_raw.csv")
+cr = pd.read_csv("Resources/cohort_raw.csv")
 cr['cohort_month'] = pd.to_datetime(cr['cohort_month'],format = '%d-%m-%Y')
 cr = cr.sort_values('cohort_month',ascending = True).reset_index(drop = True)
 
