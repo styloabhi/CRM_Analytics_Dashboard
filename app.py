@@ -1,6 +1,7 @@
+import streamlit as st
 import yaml
 from yaml.loader import SafeLoader
-import streamlit as st
+
 import streamlit_authenticator as stauth
 
 
@@ -49,3 +50,4 @@ elif auth_status == False:
 
 elif auth_status == None:
     st.warning("⚠️ Please enter username and password")
+    st.stop()
