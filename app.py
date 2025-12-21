@@ -1,20 +1,15 @@
 import streamlit as st
 import yaml
 from yaml.loader import SafeLoader
-
 import streamlit_authenticator as stauth
 
 st.set_page_config(page_title="CRM Dashboard", layout="wide")
 
-# -------------------------
-# LOAD YAML CONFIG
-# -------------------------
+# LOAD CONFIG
 with open('config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
 
-# -------------------------
-# AUTHENTICATION
-# -------------------------
+# AUTH SETUP
 authenticator = stauth.Authenticate(
     config['credentials'],
     config['cookie']['name'],
@@ -22,26 +17,29 @@ authenticator = stauth.Authenticate(
     config['cookie']['expiry_days'],
 )
 
-name, auth_status, username = authenticator.login('main')
+# LOGIN FORM
+authenticator.login('main')
 
+# FETCH LOGIN STATE
+auth_status = st.session_state.get("authentication_status")
+name = st.session_state.get("name")
+username = st.session_state.get("username")
 
+# WHEN NOT LOGGED IN
+if auth_status is None:
+    st.warning("⚠️ Please enter username and password")
+    st.stop()
 
+# WHEN LOGIN FAILED
+elif auth_status is False:
+    st.error("❌ Incorrect username or password")
+    st.stop()
 
-# -------------------------
-# CHECK LOGIN STATUS
-# -------------------------
-if auth_status:
-
-    st.sidebar.success(f"Welcome: {name}")
+# WHEN LOGIN SUCCESS
+elif auth_status is True:
+    st.sidebar.success(f"Welcome {name} 👋")
     authenticator.logout("Logout", "sidebar")
 
     st.markdown("# 📊 CRM Analytics Dashboard")
     st.write("### Welcome to CRM Streamlit App 🚀")
     st.success("✔ Use the left sidebar to open dashboards")
-
-elif auth_status == False:
-    st.error("❌ Incorrect username or password")
-
-elif auth_status == None:
-    st.warning("⚠️ Please enter username and password")
-    st.stop()

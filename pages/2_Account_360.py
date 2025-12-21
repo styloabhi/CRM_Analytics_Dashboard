@@ -318,8 +318,8 @@ st.plotly_chart(fig, use_container_width=True)
 
 win_rate_sector = (filtered.groupby('sector')
                    .agg(
-                       total = ('total_opportunities',sum),
-                       won = ('won_opportunities','sum')
+                       total = ('total_opportunities',"sum"),
+                       won = ('won_opportunities',"sum")
                         ).reset_index()
                     )
 win_rate_sector['win_rate'] = (win_rate_sector['won']/win_rate_sector['total'] * 100).round(2)
