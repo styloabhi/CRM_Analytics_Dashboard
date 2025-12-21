@@ -116,7 +116,7 @@ with col_title:
             🏢 Account 360 Dashboard
         </h1>
         <p style='font-size:20px; color:#5a6a81; font-weight:500;'>
-            Account performance overview across revenue, sector, region & opportunities.
+            Full Account Insights Covering Revenue, Opportunities, Win Rate, and Engagement Cycle.
         </p>
         """,
         unsafe_allow_html=True
